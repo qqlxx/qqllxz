@@ -1,0 +1,42 @@
+```javascript
+function deepCopy(obj, cache = new WeakMap()) {
+  if (cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  if (obj instanceof Date) {
+    return new Date(obj);
+  }
+
+  if (obj instanceof Map) {
+    const copy = new Map();
+    cache.set(obj, copy);
+    for (const [key, value] of obj.entries()) {
+      copy.set(key, deepCopy(value, cache));
+    }
+    return copy;
+  }
+
+  if (obj instanceof Set) {
+    const copy = new Set();
+    cache.set(obj, copy);
+    for (const value of obj.values()) {
+      copy.add(deepCopy(value, cache));
+    }
+    return copy;
+  }
+
+  if (typeof obj !== 'object' || obj === null) {
+    return obj;
+  }
+
+  const copy = Array.isArray(obj) ? [] : {};
+  cache.set(obj, copy);
+
+  Object.keys(obj).forEach(key => {
+    copy[key] = deepCopy(obj[key], cache);
+  });
+
+  return copy;
+}
+```
