@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домик на CSS</title>
+  <style>
+    .house {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: #8A2BE2; /* цвет основания дома */
+      margin: 100px auto;
+    }
+
+    .roof {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 100px solid #A52A2A; /* цвет крыши */
+      position: absolute;
+      top: -100px;
+      left: 0;
+    }
+
+    .window {
+      width: 50px;
+      height: 50px;
+      background: #ADD8E6; /* цвет окна */
+      border-radius: 50%; /* делаем окно круглым */
+      position: absolute;
+      top: 40px;
+      left: 75px;
+    }
+
+    .door {
+      width: 60px;
+      height: 100px;
+      background: #654321; /* цвет двери */
+      position: absolute;
+      bottom: 0;
+      left: 70px;
+    }
+
+    .chimney {
+      width: 30px;
+      height: 80px;
+      background: #A52A2A; /* цвет дымохода */
+      position: absolute;
+      top: -80px;
+      right: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="house">
+  <div class="roof"></div>
+  <div class="window"></div>
+  <div class="door"></div>
+  <div class="chimney"></div>
+</div>
+
+</body>
+</html>
